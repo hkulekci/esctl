@@ -2,6 +2,7 @@ package es
 
 import (
 	"bytes"
+	"crypto/tls"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -42,6 +43,8 @@ func httpRequest(method, endpoint string, body, target interface{}, expectedStat
 	}
 
 	req.Header.Add("Content-Type", "application/json")
+
+	http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: shared.ElasticsearchSkipSslVefify}
 
 	resp, err := http.DefaultClient.Do(req)
 	if err != nil {

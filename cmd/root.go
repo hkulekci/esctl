@@ -78,6 +78,7 @@ func readContextFromConfig(conf config.Config) {
 				fmt.Println("Error: 'host' field is not specified in the configuration for the current cluster.")
 				os.Exit(1)
 			}
+			shared.ElasticsearchSkipSslVefify = cluster.SkipSslVerify
 			clusterFound = true
 			break
 		}

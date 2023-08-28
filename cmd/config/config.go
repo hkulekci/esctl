@@ -100,12 +100,13 @@ func runCurrentContext(cmd *cobra.Command, args []string) {
 }
 
 type Context struct {
-	Name     string `mapstructure:"name"`
-	Protocol string `mapstructure:"protocol"`
-	Host     string `mapstructure:"host"`
-	Port     int    `mapstructure:"port"`
-	Username string `mapstructure:"username"`
-	Password string `mapstructure:"password"`
+	Name          string `mapstructure:"name"`
+	Protocol      string `mapstructure:"protocol"`
+	Host          string `mapstructure:"host"`
+	Port          int    `mapstructure:"port"`
+	Username      string `mapstructure:"username"`
+	Password      string `mapstructure:"password"`
+	SkipSslVerify bool   `mapstructure:"skip_ssl_verify"`
 }
 
 type Entity struct {
